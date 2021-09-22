@@ -7,6 +7,11 @@ import { IpAddress } from '../decorators/ip-adress.decorator';
 export class AuthController {
   constructor(private readonly service: AuthService) {}
 
+  @Get()
+  async hello() {
+    return 'Auth module';
+  }
+
   @Post('login')
   async login(@IpAddress() clientIp: string, @Body() dto: KeyDto) {
     return this.service.login(clientIp, dto);
