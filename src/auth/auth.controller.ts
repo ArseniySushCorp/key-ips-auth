@@ -13,7 +13,7 @@ export class AuthController {
   }
 
   @Post('login')
-  async login(@IpAddress() clientIp: string, @Body() dto: KeyDto) {
+  async login(@IpAddress() clientIp: string | null, @Body() dto: KeyDto) {
     return this.service.login(clientIp, dto);
   }
 

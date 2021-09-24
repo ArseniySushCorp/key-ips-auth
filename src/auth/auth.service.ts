@@ -12,7 +12,11 @@ export class AuthService {
     private readonly model: ModelType<KeyIpsModel>,
   ) {}
 
-  async login(clientIp: string, dto: KeyDto) {
+  async login(clientIp: string | null, dto: KeyDto) {
+    if (!clientIp) {
+      throw new UnauthorizedException('ip not valid');
+    }
+
     const existModel = await this.model.findOne({ key: dto.key }).exec();
 
     if (!existModel) {
