@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { TypegooseModule } from 'nestjs-typegoose';
+import { BotModule } from './bot/bot.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { TypegooseModule } from 'nestjs-typegoose';
       }),
     }),
     AuthModule,
+    BotModule,
   ],
 })
 export class AppModule {}

@@ -18,7 +18,7 @@ export class AuthController {
   }
 
   @Post('logout')
-  async logout(@IpAddress() clientIp: string, @Body() dto: KeyDto) {
+  async logout(@IpAddress() clientIp: string | null, @Body() dto: KeyDto) {
     return this.service.logout(clientIp, dto);
   }
 }
