@@ -13,7 +13,7 @@ async function bootstrap() {
     },
   });
 
-  // app.use(requestIp.mw());
+  app.use(requestIp.mw());
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(3010, () => Logger.log('Server is started on port - 3010'));
